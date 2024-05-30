@@ -4,7 +4,7 @@ import { getConfig } from 'src/config'
 import logDebug from 'src/logDebug'
 
 export default function initFirebaseClientSDK() {
-  const { firebaseClientInitConfig, firebaseAuthEmulatorHost, tenantId } =
+  const { firebaseClientInitConfig, firebaseAuthEmulatorHost, tenantId, firebaseClientAppName } =
     getConfig()
   if (!getApps().length) {
     if (!firebaseClientInitConfig) {
@@ -25,6 +25,6 @@ export default function initFirebaseClientSDK() {
   }
   // If the user has provided the firebaseAuthEmulatorHost address, set the emulator
   if (firebaseAuthEmulatorHost) {
-    connectAuthEmulator(getAuth(getApp()), `http://${firebaseAuthEmulatorHost}`)
+    connectAuthEmulator(getAuth(getApp(firebaseClientAppName)), `http://${firebaseAuthEmulatorHost}`)
   }
 }
