@@ -1,0 +1,1 @@
+import fs from"fs";import{EOL}from"os";export default function readFile(r){const t=fs.readFileSync(r,"utf8").toString();return"\n"!==EOL?t.replace(/\n/g,EOL):t}

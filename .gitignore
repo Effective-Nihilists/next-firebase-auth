@@ -103,7 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-build
 .env.local
 next-env.d.ts
 service-worker.js

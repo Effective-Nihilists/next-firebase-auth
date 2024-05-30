@@ -127,9 +127,7 @@ const useFirebaseUser = () => {
     claims: {},
     initialized: false,
   })
-  const {
-    firebaseClientAppName,
-  } = getConfig()
+  const { firebaseClientAppName } = getConfig()
   const [isAuthCookieRequestComplete, setIsAuthCookieRequestComplete] =
     useState(false)
 
@@ -178,7 +176,10 @@ const useFirebaseUser = () => {
     }
 
     // https://firebase.google.com/docs/reference/js/firebase.auth.Auth#onidtokenchanged
-    const unsubscribe = onIdTokenChanged(getAuth(getApp(firebaseClientAppName)), onIdTokenChange)
+    const unsubscribe = onIdTokenChanged(
+      getAuth(getApp(firebaseClientAppName)),
+      onIdTokenChange
+    )
     return () => {
       unsubscribe()
       isCancelled = true
