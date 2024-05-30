@@ -1,1 +1,0 @@
-import renameImport from"./util/renameImport";const originalAPIName="withAuthUserSSR",newAPIName="withUserSSR";export default function transformer(e,r,a){return renameImport({file:e,api:r,options:a},{originalAPIName,newAPIName})}
