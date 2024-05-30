@@ -131,6 +131,8 @@ const useFirebaseUser = () => {
   const [isAuthCookieRequestComplete, setIsAuthCookieRequestComplete] =
     useState(false)
 
+  console.error(`JUSTIN: firebaseClientAppName |${firebaseClientAppName}|`)
+
   useEffect(() => {
     let isCancelled = false
 
@@ -184,7 +186,7 @@ const useFirebaseUser = () => {
       unsubscribe()
       isCancelled = true
     }
-  }, [])
+  }, [firebaseClientAppName])
 
   return {
     ...userInfo,
